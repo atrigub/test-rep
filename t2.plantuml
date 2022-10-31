@@ -1,0 +1,10 @@
+[c4plantuml]
+....
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+System_Boundary(c1, "Profile") {
+    Container(identity_service, "Web Application", "C#, ASP.NET Core 6.0", "Provides oAuth for users")
+}
+@enduml
+....
