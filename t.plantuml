@@ -1,0 +1,11 @@
+[c4plantuml]
+....
+@startuml
+!include C4_Context.puml
+
+title Merchant Services
+System(notification_service, "Notification Service", "Manages notifications")
+System(order_service, "Order Service", "Manages merchant's orders")
+System(integration_service, "Integration Service", "Provides integration with merchant")
+@enduml
+....
