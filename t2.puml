@@ -5,4 +5,17 @@
 System_Boundary(c1, "Profile") {
     Container(identity_service, "Web Application", "C#, ASP.NET Core 6.0", "Provides oAuth for users")
 }
+
+
+System_Boundary(c1, "Customer Information") {
+    Container(app, "Customer Application", "Javascript, Angular", "Allows customers to manage their profile")
+    Container(customer_service, "Customer Service", "Java, Spring Boot", "The point of access for customer information", $tags = "microService")
+    Container(message_bus, "Message Bus", "RabbitMQ", "Transport for business events")
+    Container(reporting_service, "Reporting Service", "Ruby", "Creates normalised data for reporting purposes", $tags = "microService")
+    Container(audit_service, "Audit Service", "C#/.NET", "Provides organisation-wide auditing facilities", $tags = "microService")
+    ContainerDb(customer_db, "Customer Database", "Oracle 12c", "Stores customer information", $tags = "storage")
+    ContainerDb(reporting_db, "Reporting Database", "MySQL", "Stores a normalized version of all business data for ad hoc reporting purposes", $tags = "storage")
+    Container(audit_store, "Audit Store", "Event Store", "Stores information about events that have happened", $tags = "storage")
+}
+
 @enduml
